@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/para-pagina/DiscoDeOuro.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./database.js" defer></script>
+    <script src="./script.js" defer></script>
+    <title>Gold Age Vinyl</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="div-hearder conteiner">
+            <h1><span>Gold</span> Age Vinyl</h1>
+            <nav>
+                <ul class="menu">
+                    <li id="destaque">Todos</li>
+                    <li>Rock Classics</li>
+                    <li>Soft Rock</li>
+                    <li>Heavy Metal</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="fundo">
+        <div class="fundo-cor">
+            <div class="conteiner">
+                <section class="intro">
+                    <p>
+                        Você também já sentiu que nasceu no ano errado? Como se sua mente pensasse nos anos 50 - 80 como boas memórias de outra vida? Como se pertencesse àquela época?
+                    </p>
+                    <p>
+                        Se a resposta for uma grande "SIM", reunimos em um só lugar um compilado de discos de vinis dos melhores hits e álbunds dos velhos e bons tempos do Rock.
+                    </p>
+                    <p>
+                        <strong class="strong">Confere aqui embaixo o que preparamos especialmente para você!</strong>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <div class="sombra"></div>
+    
+    <section class="conteiner secao">
+        <h2 class="titulo-secundario">
+            Discos de Vinil
+        </h2>
+        <form class="pesquisa-produto">
+            <input 
+            type="search" 
+            class="input" 
+            placeholder="Digite o nome do álbum...">
+            <button class="butao-pesquisar">
+                <img class="icone-pesquisa" src="./assets/img/para-pagina/search-icon1.png" alt="">
+            </button>
+        </form>
+    </section>
+    
+    <div class="conteiner layout">
+        <main>
+            <!-- <ul class="lista-produtos">
+                <li class="card-produto">
+                    <div>
+                        <img src="./assets/img/rock/ACDC-HighVoltage.jpg" class="img">
+                        <h3>High Voltage</h3>
+                        <small>AC/DC</small>
+                        <span>Rock Classics</span>
+                    </div>
+                    <div>
+                        <p class="preco">R$ 2.000,00</p>
+                        <small>Frete grátis para todo o Brasil</small>
+                        <form class="adicionar-carrinho">
+                            <button class="butao">Adicionar ao carrinho</button>
+                        </form>
+                    </div>
+                </li>
+            </ul> -->
+        </main>
+    
+        <aside hidden class="carrinho">
+            <h2 class="titulo-carrinho">Carrinho de compras</h2>
+            <div id="conteiner-carrinho">
+                <p class="carrinho-vazio">Adicionar itens ao carrinho</p>
+                <!-- <ul>
+                    <li class="produto-carrinho">
+                        <img class="icone-album" src="./assets/img/rock/ACDC-HighVoltage.jpg" alt="Álbum High Voltage">
+                        <div>
+                            <h3>
+                                High Voltage
+                            </h3>
+                            <p>
+                                AC/DC
+                            </p>
+                            <small>R$ 2.000,00</small>
+                        </div>
+                        <input 
+                            type="image" 
+                            src="./assets/img/para-pagina/trash.png"
+                            title="Excluir" 
+                            class="lixeira">
+                    </li>
+                </ul> -->
+            </div>
+
+            <section class="info-carrinho">
+                <div class="quantidade-itens">
+                    <p>Quantidade:</p>
+                    <p id="quantiaFinal">0</p>
+                </div>
+                <div class="preco-total">
+                    <p>Total:</p>
+                    <p id="valorFinal">R$ 0.00</p>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- <video src="./assets/video/frajola-carrinhoVazio.mp4" type="video/mp4"></video> -->
+    
+</body>
+</html>
