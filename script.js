@@ -15,7 +15,6 @@ let aside = document.querySelector('aside')
 let ulCarrinho = document.createElement('ul')
 
 let conteinerCarrinho = document.querySelector("#conteiner-carrinho")
-console.log(conteinerCarrinho.children.length)
 let quantiaFinal = document.querySelector("#quantiaFinal")
 let valorFinal = document.querySelector("#valorFinal")
 
@@ -116,6 +115,22 @@ function verificarDuplicidade (id) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ------------------ C A R R I N H O-----------------------
 
 function criaProdutoCarrinho (itemSelecionado) {
@@ -152,10 +167,11 @@ function criaProdutoCarrinho (itemSelecionado) {
     inputCarrinho.setAttribute('class', 'lixeira')
 
     inputCarrinho.addEventListener('click', function(){
-       
+
         if (itensAdicionados.length === 1) {
             ulCarrinho.remove()
             conteinerCarrinho.append(pCarrinhoVazio)
+            
         }
         liCarrinho.remove()
         itensAdicionados.pop()
@@ -188,41 +204,6 @@ function criaProdutoCarrinho (itemSelecionado) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// function criarInfoCarrinho (itensSelecionados) {
-//     let infoCarrinho = document.createElement('section')
-//     infoCarrinho.className = 'info-carrinho'
-    
-//     let divQuantidade = document.createElement('div')
-//     divQuantidade.className = 'quantidade-itens'
-//     divQuantidade.innerHTML = 
-//     `
-//     <p>Quantidade:</p>
-//     <p>${contarQuantidade(itensSelecionados)}</p>
-//     `
-    
-//     let divTotal = document.createElement('div')
-//     divTotal.className = 'preco-total'
-//     divTotal.innerHTML = 
-//     `
-//         <p>Total:</p>
-//         <p>R$ ${calcularPrecoTotal(itensSelecionados)}</p>
-//     `
-
-//     infoCarrinho.append(divQuantidade, divTotal)
-//     aside.appendChild(infoCarrinho)
-// }
-// criarInfoCarrinho(itensAdicionados)
 
 
 
