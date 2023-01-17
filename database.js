@@ -111,5 +111,3 @@ const discos = [
 
 
 let itensAdicionados = []
-
-

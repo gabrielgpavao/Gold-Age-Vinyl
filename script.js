@@ -26,6 +26,8 @@ let pCarrinhoVazio = document.querySelector(".carrinho-vazio")
 //----------------------------- V I T R I N E -------------------------------------
 
 function criarLiProdutos (listaProdutos) {
+    ulProdutos.innerHTML = ''
+    
     for (let i = 0; i < listaProdutos.length; i++) {
         let liProduto = document.createElement('li')
         liProduto.className = 'card-produto'
@@ -63,41 +65,38 @@ criarLiProdutos(discos)
 
 main.appendChild(ulProdutos)
 
+function adicionarProdutoCarrinho (itensCarrinho) {
 
-
-
-
-
-
-
-let butaoAdicionar = document.getElementsByClassName('butao')
-
-for (let i = 0; i < butaoAdicionar.length; i++) {
-
-    butaoAdicionar[i].addEventListener('click', function(event){
-        
-        let disco = {}
-        
-        for (let j = 0; j < discos.length; j++) {
-            if (discos[j].id == event.target.id) {
-                disco = discos[j]
-                if (!verificarDuplicidade(disco.id)) {
-                    pCarrinhoVazio.remove()
-                    
-                    criaProdutoCarrinho(disco)
-                    itensAdicionados.push(disco)
-
-                    quantiaFinal.innerHTML = `${contarQuantidade(itensAdicionados)}`
-                    valorFinal.innerHTML = `R$ ${calcularPrecoTotal(itensAdicionados)}`
-                    
-
-                } else {
-                    alert(' produto já se encontra no carrinho!')
+    let butaoAdicionar = document.getElementsByClassName('butao')
+    
+    for (let i = 0; i < butaoAdicionar.length; i++) {
+    
+        butaoAdicionar[i].addEventListener('click', function(event){
+            
+            let disco = {}
+            
+            for (let j = 0; j < itensCarrinho.length; j++) {
+                if (itensCarrinho[j].id == event.target.id) {
+                    disco = itensCarrinho[j]
+                    if (!verificarDuplicidade(disco.id)) {
+                        pCarrinhoVazio.remove()
+                        
+                        criaProdutoCarrinho(disco)
+                        itensAdicionados.push(disco)
+    
+                        quantiaFinal.innerHTML = `${contarQuantidade(itensAdicionados)}`
+                        valorFinal.innerHTML = `R$ ${calcularPrecoTotal(itensAdicionados)}`
+                        
+    
+                    } else {
+                        alert('Este produto já se encontra no carrinho!')
+                    }
                 }
             }
-        }
-    })
+        })
+    }
 }
+adicionarProdutoCarrinho(discos)
 
 
 
@@ -110,25 +109,6 @@ function verificarDuplicidade (id) {
         return true
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ------------------ C A R R I N H O-----------------------
@@ -191,22 +171,6 @@ function criaProdutoCarrinho (itemSelecionado) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function contarQuantidade(itens) {
     return itens.length
 }
@@ -222,4 +186,55 @@ function calcularPrecoTotal (itens) {
 }
 
 
+function filtrarProdutos (lista) {
+    const buttonSearch = document.querySelector('.butao-pesquisar')
+    const inputSearch = document.querySelector('.input')
 
+    buttonSearch.addEventListener('click', () => {
+        const filteredList = lista.filter((element) => {
+            const byCategory = element.estilo.toLowerCase().includes(inputSearch.value.toLowerCase())
+            const byAlbum = element.album.toLowerCase().includes(inputSearch.value.toLowerCase())
+            const byBand = element.banda.toLowerCase().includes(inputSearch.value.toLowerCase())
+
+            return byCategory || byAlbum || byBand
+        })
+
+        criarLiProdutos(filteredList)
+        adicionarProdutoCarrinho(filteredList)
+    })
+
+    inputSearch.addEventListener('keyup', () => {
+        if (inputSearch.value === '') {
+            criarLiProdutos(discos)  
+            adicionarProdutoCarrinho(discos)
+        }
+    })
+}
+filtrarProdutos(discos)
+
+
+function filtroPorEstilo () {
+    const navMenu = document.querySelector('nav')
+    navMenu.addEventListener('click', (event) => {
+        const discosFiltrados = discos.filter((element) => element.estilo === event.target.innerText)
+        
+        switch (event.target.innerText) {
+            case 'Rock Classics':
+                criarLiProdutos(discosFiltrados)
+                adicionarProdutoCarrinho(discosFiltrados)
+                break;
+            case 'Soft Rock':
+                criarLiProdutos(discosFiltrados)
+                adicionarProdutoCarrinho(discosFiltrados)
+                break;
+            case 'Heavy Metal':
+                criarLiProdutos(discosFiltrados)
+                adicionarProdutoCarrinho(discosFiltrados)
+                break;
+            default:
+                criarLiProdutos(discos)
+                adicionarProdutoCarrinho(discos)
+        }
+    })
+}
+filtroPorEstilo()
